@@ -16,6 +16,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Event> findEvents() {
         return eventService.getEvents();
@@ -32,6 +33,8 @@ public class EventController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateEvent(@PathVariable Long id, @RequestBody Event event) {
+    public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
+        return eventService.updateEvent(event);
+
     }
 }
